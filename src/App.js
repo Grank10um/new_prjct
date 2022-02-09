@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import {Button, Container, Form} from "react-bootstrap";
+import {observer} from "mobx-react-lite";
+import CreateDevice from "./CreateDevice"
 
-function App() {
+const App = observer(() => {
+
+  const [deviceVisible, setDeviceVisible] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Container className="d-flex flex-column">
+
+          <Button
+              variant={"outline-dark"}
+              className="mt-4 p-2"
+              onClick={() => setDeviceVisible(true)}
+          >
+              Добавить устройство
+          </Button>
+          <CreateDevice show={deviceVisible} onHide={() => setDeviceVisible(false)}/>
+      </Container>
   );
-}
+});
+
 
 export default App;
