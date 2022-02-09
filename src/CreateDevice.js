@@ -70,6 +70,16 @@ const CreateDevice = observer(({show, onHide}) => {
                             )}
                         </Dropdown.Menu>
                     </Dropdown>
+<select>
+{device.types.map(type =>
+  <option 
+    onClick={() => device.setSelectedType(type)}
+    key={type.id}
+    >
+    {type.name}</option>
+)}
+</select>
+
                     {/* <Dropdown className="mt-2 mb-2">
                         <Dropdown.Toggle>{device.selectedBrand.name || "Выберите тип"}</Dropdown.Toggle>
                         <Dropdown.Menu>
